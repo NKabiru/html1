@@ -1,0 +1,81 @@
+<!-- HTML Basics -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <p>Hello Cytonn! This is a paragraph</p>
+    <a href="https://www.w3schools.com/default.asp">A sample link to W3Schools.com website</a>
+    <br>
+    <!-- Forms -->
+    <p>Sample form:</p>
+    <form action="post">
+    <fieldset>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="fname"></td>
+        </tr>
+        <tr>
+            <td>Number:</td>
+            <td><input type="number" name="phone"></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input type="radio" name="gender">Male
+                <input type="radio" name="gender">Female
+            </td>
+        </tr>
+        <tr>
+            <td>Options</td>
+            <td>
+                <select name="dropdown">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>TextArea</td>
+            <td><textarea name="text-block"  cols="15" rows="5"></textarea></td>
+        </tr>
+    </table>
+    </fieldset>  
+    </form>
+
+    <!-- Draw a rectangle -->
+    <p>Rectangle using canvas</p><br>
+    <canvas id="rectangle" width="250" height="150"></canvas><br>
+
+    <!-- SVG -->
+    <p>Rectangle with rounded corners using SVG </p>
+    <svg width="400" height="200">
+        <rect x="50" y="20" rx="20" ry="20" width="150" height="150" 
+        style="fill:green;stroke:blue;stroke-width:5;opacity:0.5" /></rect>
+    </svg><br>
+
+    <!-- Google Map -->
+    <p>Google Map:</p><br>
+    <iframe
+    width="600"
+    height="450"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAfrOib-cG4R919MUqiR-82v7_bYBaS8S0
+      &q=Fedha+Plaza,+Mpaka+Rd,+Nairobi" allowfullscreen>
+  </iframe>
+</body>
+
+<script>
+    var c = document.getElementById("rectangle");
+    var ctx = c.getContext('2d');
+    ctx.rect(30,30, 150, 100);
+    ctx.stroke();
+</script>
+<script src=""></script>
+</html>
+
