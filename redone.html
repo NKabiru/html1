@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Page</title>
+</head>
+<body>
+   <div>
+       <h4>Canvas lines and text:</h4>
+        <canvas id="logo" width="500" height="100"></canvas>
+        <h4>Canvas object:</h4>
+        <canvas id="circle" width="150" height="150"></canvas>
+        <h4>Inline SVG object:</h4>
+        <svg>
+            <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:blue;stop-opacity:1"/>
+                    <stop offset="100%" style="stop-color:aquamarine;stop-opacity:1"/>
+                </linearGradient>
+            </defs>
+            <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#gradient)"/>
+            <text fill="#000000" font-size="40" font-family="Arial" x="50" y="86">Hello</text>
+        </svg>
+        <h4>Linked SVG</h4>
+        <img src="./cytonn_logo.svg" style="width:200px;height:200px" alt="Cytonn svg logo">
+   </div>
+
+   <h4>Form:</h4><br>
+   <div>
+        <table style="width:95%;border: 1px solid; margin:auto;">
+            <tbody>
+                <form action="">
+                    <tr>
+                        <td>Name</td>
+                        <td><input type="text" placeholder="Joan Doe"></td>
+                        <td>Plan</td>
+                        <td>
+                            <select name="plan" default="2">
+                                <option value="1">Premium</option>
+                                <option value="2">Standard</option>
+                                <option value="3">Budget</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Number</td>
+                        <td><input type="number" name="phone" placeholder="123456"></td>
+                        <td>Date</td>
+                        <td><input type="date" name="date"></td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>
+                            <input type="radio" name="gender" value="male">Male
+                            <input type="radio" name="gender" value="female">Female
+                        </td>
+                        <td>Reason</td>
+                        <td><textarea name="reason"cols="17" rows="5"></textarea></td>
+                    </tr>
+                    <tr>  
+                        <td>Upload file</td>
+                        <td><input type="file" name="File" id=""></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><input type="submit" value="Submit"></td>
+                        <td><input type="reset" value="Reset"></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </form>
+            </tbody>
+        </table>
+    </div> 
+    <br>
+    <h4>Map Object:</h4>
+    <div id="map" style="height: 360px; width:360px; margin:auto"> </div>
+</body>
+<script>
+    function initMap(){
+        var options = {
+            center: {lat:-1.263512, lng: 36.806568},
+            zoom: 18
+        };
+        var map = new google.maps.Map(document.getElementById("map"), options);
+        var marker  = new google.maps.Marker({
+            position: {lat:-1.263512, lng: 36.806568},
+            map: map,
+            title: "Cytonn Technologies",
+            animation: google.maps.Animation.DROP
+        });
+    }
+
+    // Canvas drawing
+    var logo = document.getElementById("logo");
+    var context = logo.getContext("2d");
+   
+    context.font = "30px Times New Roman";
+    context.strokeText("This is Canvas",10,50);
+    context.beginPath();
+    context.moveTo(5,5);
+    context.lineTo(5,70);
+    context.lineTo(200,70);
+    context.stroke();
+
+    var circle = document.getElementById("circle");
+    var ctx = circle.getContext("2d");
+    ctx.arc(circle.width/2, circle.height/2, 70, 0, 2 * Math.PI, false);
+    ctx.fillStyle = 'green';
+    ctx.fill();
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "#003300";
+    ctx.stroke();
+
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-2kTui0k3FKZViPOcaHix4_sSASHDAuc&callback=initMap">
+</script>
+</html>
